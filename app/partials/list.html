@@ -1,0 +1,17 @@
+<div class="container" ng-init="reset()">
+    <section class="row">
+        <div class="col-xs-4 col-xs-offset-4">
+            <input type="text" class="form-control"/>
+        </div>
+    </section>
+    <section class="row" style="margin-top: 10px">
+        <div class="col-xs-4 col-xs-offset-4">
+            <div class="list-group">
+                <a href="#" class="list-group-item" ng-repeat="todo in data.todos" ng-click="selectTodo($index)">
+                    {{todo.title}}
+                    <span class="pull-right glyphicon" ng-class="{'glyphicon-ok':todo.done}"/>
+                </a>
+            </div>
+        </div>
+    </section>
+</div>
