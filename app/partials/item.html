@@ -1,12 +1,23 @@
-<div class="container">
-    <section class="row">
-        <span class="col-xs-4">{{title}}</span>
+<form class="well col-xs-4 col-xs-offset-4">
 
-        <div class="col-xs-1">
-            <input ng-model="done" type="checkbox"/>
+    <section class="form-group">
+        <input id="title" class="form-control col-xs-11" ng-if="isNew" ng-model="todo.title"/>
+        <label for="title" ng-if="!isNew">
+            {{todo.title}}
+        </label>
+    </section>
+    <section class="form-group">
+        <div class="checkbox">
+            <label>
+                <input ng-model="todo.done" type="checkbox"/> Done
+            </label>
         </div>
     </section>
-    <section class="row">
-        {{description}}
+    <section class="form-group">
+        <label for="decr">Description:</label>
+        <textarea id="decr" class="form-control" ng-model="todo.description"></textarea>
     </section>
-</div>
+    <button type="button" class="btn btn-primary" ng-click="save()">Save</button>
+    <button type="button" class="btn btn-warn" ng-click="cancel()">Cancel</button>
+    <button type="button" class="pull-right btn btn-danger" ng-click="remove()">Remove</button>
+</form>
